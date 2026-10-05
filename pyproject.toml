@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "content-moderation-env"
+version = "0.1.0"
+description = "Content Moderation AI Environment for OpenEnv"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "openenv-core>=0.2.0",
+    "fastapi>=0.100.0",
+    "uvicorn[standard]>=0.23.0",
+    "pydantic>=2.0.0",
+    "openai>=1.0.0",
+    "httpx>=0.24.0",
+    "requests>=2.31.0",
+]
+
+[project.scripts]
+server = "server.app:main"
+content-mod-server = "server.app:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["env", "server"]
+
